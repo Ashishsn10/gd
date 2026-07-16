@@ -1341,183 +1341,97 @@
       }
 
       /* ── GALLERY FILMSTRIP ── */
-      .gallery-filmstrip-section{
-          position:relative;
+      .gallery-filmstrip-section {
+        position: relative;
       }
       
-      .gallery-filmstrip-wrap{
-          position:relative;
-          margin-top:8px;
+      .gallery-filmstrip-wrap {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 8px;
       }
       
-      .gallery-strip-outer{
-          overflow:hidden;
-          border-radius:14px;
-      .gallery-filmstrip-section{
-          position:relative;
+      .gallery-strip-outer {
+        flex: 1;
+        overflow: hidden;
+        border-radius: 14px;
       }
       
-      .gallery-filmstrip-wrap{
-          position:relative;
-          margin-top:8px;
+      .gallery-strip {
+        display: flex;
+        gap: 12px;
+        height: 420px;
+        transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        will-change: transform;
       }
       
-      .gallery-strip-outer{
-          overflow:hidden;
-          border-radius:14px;
-      .gallery-filmstrip-section{
-          position:relative;
+      .gallery-strip-item {
+        height: 100%;
+        flex-shrink: 0;
+        border-radius: 12px;
+        overflow: hidden;
+        cursor: pointer;
+        position: relative;
       }
       
-      .gallery-filmstrip-wrap{
-          position:relative;
-          margin-top:8px;
+      .gallery-strip-item img {
+        height: 100%;
+        width: auto;
+        display: block;
+        transition: transform 0.4s ease, filter 0.3s ease;
       }
       
-      .gallery-strip-outer{
-          overflow:hidden;
-          border-radius:14px;
-      .gallery-filmstrip-section{
-          position:relative;
+      .gallery-strip-item:hover img {
+        transform: scale(1.04);
+        filter: brightness(1.05);
       }
       
-      .gallery-filmstrip-wrap{
-          position:relative;
-          margin-top:8px;
+      .gallery-film-btn {
+        flex-shrink: 0;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: none;
+        background: var(--white);
+        box-shadow: 0 2px 14px rgba(0,0,0,0.14);
+        font-size: 18px;
+        color: var(--text);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s, opacity 0.2s;
+        z-index: 5;
       }
       
-      .gallery-strip-outer{
-          overflow:hidden;
-          border-radius:14px;
-      .gallery-filmstrip-section{
-          position:relative;
+      .gallery-film-btn:hover {
+        background: var(--primary);
+        color: var(--white);
+        box-shadow: 0 4px 18px rgba(15,76,129,0.28);
       }
       
-      .gallery-filmstrip-wrap{
-          position:relative;
-          margin-top:8px;
+      .gallery-film-btn:disabled {
+        opacity: 0.25;
+        cursor: default;
+        pointer-events: none;
       }
       
-      .gallery-strip-outer{
-          overflow:hidden;
-          border-radius:14px;
+      .gallery-film-hint {
+        text-align: center;
+        margin-top: 16px;
+        font-size: 13px;
+        color: var(--sub);
+        letter-spacing: 0.3px;
       }
       
-      .gallery-strip{
-          display:flex;
-          gap:12px;
-          height:420px;
-          transition:transform .5s cubic-bezier(.25,.46,.45,.94);
-          will-change:transform;
+      @media (max-width: 900px) {
+        .gallery-strip { height: 320px; }
       }
       
-      .gallery-strip-item{
-          flex-shrink:0;
-          height:100%;
-          border-radius:14px;
-          overflow:hidden;
-          cursor:pointer;
-      }
-      
-      .gallery-strip-item img{
-          height:100%;
-          width:auto;
-          display:block;
-          transition:transform .35s ease,filter .3s ease;
-      }
-      
-      .gallery-strip-item:hover img{
-          transform:scale(1.04);
-          filter:brightness(1.05);
-      }
-      
-      /* ---------- Arrow Buttons ---------- */
-      
-      .gallery-film-btn{
-          position:absolute;
-          top:50%;
-          transform:translateY(-50%);
-          width:48px;
-          height:48px;
-          border:none;
-          border-radius:50%;
-          background:#fff;
-          box-shadow:0 4px 18px rgba(0,0,0,.18);
-          display:flex;
-          align-items:center;
-          justify-content:center;
-          cursor:pointer;
-          z-index:20;
-          font-size:18px;
-          color:var(--text);
-          transition:.25s;
-      }
-      
-      .gallery-film-btn:hover{
-          background:var(--primary);
-          color:#fff;
-      }
-      
-      #galPrev{
-          left:-22px;
-      }
-      
-      #galNext{
-          right:-22px;
-      }
-      
-      .gallery-film-btn:disabled{
-          opacity:.3;
-          pointer-events:none;
-      }
-      
-      /* ---------- Hint ---------- */
-      
-      .gallery-film-hint{
-          text-align:center;
-          margin-top:18px;
-          font-size:15px;
-          color:var(--sub);
-          letter-spacing:.3px;
-      }
-      
-      /* ---------- Mobile ---------- */
-      
-      @media (max-width:900px){
-      
-          .gallery-strip{
-              height:320px;
-          }
-      
-          #galPrev{
-              left:-12px;
-          }
-      
-          #galNext{
-              right:-12px;
-          }
-      }
-      
-      @media (max-width:600px){
-      
-          .gallery-strip{
-              height:260px;
-              gap:8px;
-          }
-      
-          .gallery-film-btn{
-              width:38px;
-              height:38px;
-              font-size:15px;
-          }
-      
-          #galPrev{
-              left:-8px;
-          }
-      
-          #galNext{
-              right:-8px;
-          }
+      @media (max-width: 600px) {
+        .gallery-strip { height: 260px; gap: 8px; }
+        .gallery-film-btn { width: 36px; height: 36px; font-size: 15px; }
       }
 
       /* ============================================================
